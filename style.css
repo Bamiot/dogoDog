@@ -49,3 +49,22 @@ img{
   position: relative;
   top: -700px;
 }
+
+.up-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 18px;
+  border-radius: 50%;
+  background-color: #222;
+  display: flex;
+  font-size: 2em;
+  color: #EEE;
+}
+
+.up-button:hover{
+  background-color: #111;
+  box-shadow: 0px 0px 10px #aaa;
+}

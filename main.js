@@ -7,6 +7,13 @@ document.querySelector('#refresh').addEventListener('click', () => {
   window.location.reload()
 })
 
+document.querySelector('.up-button').addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+})
+
 // get image from api and display it in the root
 const getImage = async () => {
   const response = await fetch(dogAPI[Math.floor(Math.random() * dogAPI.length)])
@@ -14,7 +21,11 @@ const getImage = async () => {
   const img = document.createElement('img')
   img.src = data.message
   root.appendChild(img)
-  // getImage()
+  checkEnd()
+  // if root is heighter than 5000px, remove the first image
+  // if (root.getBoundingClientRect().height > 5000) {
+  //   root.removeChild(root.firstChild)
+  // }
 }
 
 // when the end element is visible, get a new image
@@ -24,4 +35,8 @@ const checkEnd = () => {
   }
 }
 
-setInterval(checkEnd, 50)
+document.addEventListener('scroll', checkEnd)
+
+for (let i = 0; i < 5; i++) {
+  getImage()
+}
